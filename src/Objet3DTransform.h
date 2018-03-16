@@ -14,14 +14,14 @@ class Objet3DTransform : public AbsObjet3D
 {
 
 public:
-	//Objet3DTransform(Objet3DIterator& cible, float dx = 0.0, float dy = 0.0, float dz = 0.0);
-	//Objet3DTransform(const Objet3DTransform& mdd);
-	//virtual Objet3DTransform* cloner(void) const;
-	//virtual ~Objet3DTransform();
+	Objet3DTransform(Objet3DIterator& cible, float dx = 0.0, float dy = 0.0, float dz = 0.0);
+	Objet3DTransform(const Objet3DTransform& mdd);
+	virtual Objet3DTransform* cloner(void) const;
+	virtual ~Objet3DTransform();
 
 	//// Interface de gestion des enfants dans le patron composite
-	//virtual Objet3DIterator begin();
-	//virtual Objet3DIterator end();
+	virtual Objet3DIterator begin();
+	virtual Objet3DIterator end();
 	virtual Objet3DIterator_const cbegin() const;
 	virtual Objet3DIterator_const cend() const;
 	virtual void addChild(const AbsObjet3D&);

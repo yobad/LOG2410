@@ -74,31 +74,34 @@ void TP4_Tests::testComposite(){
 	outToStream(m_objet, "m_objet   ", std::cout);
 }
 
-//void TP4_Tests::testDecorator()
-//{
-//	// Recuperer un iterateur sur la Part2
-//	Objet3DIterator m_objetIter(m_objet.begin());
-//	Objet3DIterator part1Iter(m_objetIter);
-//
-//	// Construire un Decorateur de transformation sur la Part1
-//	std::cout << std::endl << std::endl;
-//	std::cout << "Tests du patron DECORATOR" << std::endl;
-//	std::cout << "=========================" << std::endl << std::endl;
-//
-//	Objet3DTransform transformPart1(part1Iter, 0.5, -0.5, 1.0);
-//	outToStream(transformPart1, "transformPart1   ", std::cout);
-//}
+void TP4_Tests::testDecorator()
+{
+	// Recuperer un iterateur sur la Part2
+	Objet3DIterator m_objetIter(m_objet.begin());
+	Objet3DIterator part1Iter(m_objetIter);
+
+	// Construire un Decorateur de transformation sur la Part1
+	std::cout << std::endl << std::endl;
+	std::cout << "Tests du patron DECORATOR" << std::endl;
+	std::cout << "=========================" << std::endl << std::endl;
+
+	Objet3DTransform transformPart1(part1Iter, 0.5, -0.5, 1.0);
+	outToStream(transformPart1, "transformPart1   ", std::cout);
+}
 
 void TP4_Tests::outToStream(const AbsObjet3D& obj, std::string indent, std::ostream & o) const
 {
 	// Imprimer tous les triangles contenus dans l'objet 
 	int itri = 0;
-	for( auto itert = obj.triangle_cbegin(); itert != obj.triangle_cend(); ++itert, ++itri ) //violation de lecture, nullptr
+	for (auto itert = obj.triangle_cbegin(); itert != obj.triangle_cend(); ++itert, ++itri) {
+		/*o << "Adresse de cet itérateur:" << itert.operator->() << std::endl 
+			<< " Sommets du triangle proxy correspondant: " << std::endl;*/
 		o << indent << "T" << itri << ": "
-		  << itert->s1() << " | "
-		  << itert->s2() << " | "
-		  << itert->s3() << std::endl;
-	
+			<< itert->s1() << " | "
+			<< itert->s2() << " | "
+			<< itert->s3() << std::endl;
+	}
+		
 	// Imprimer tous les enfants de l'objet
 	auto itero = obj.cbegin();
 	if (itero != obj.cend())

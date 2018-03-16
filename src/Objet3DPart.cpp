@@ -92,6 +92,7 @@ TriangleIterator Objet3DPart::triangle_end()
 	// Constuire et retourner un iterateur apres la fin du contenant de triangle
 	// L'iterateur de fin doit etre fourni 2 fois pour construire l'iterateur sur les triangles
 	// A COMPLETER
+	
 	return TriangleProxyIterator_impl<TriangleContainer::iterator>(m_triangles.end(), m_triangles.end());
 
 }
@@ -103,12 +104,12 @@ TriangleIterator_const Objet3DPart::triangle_cbegin() const
 	// A COMPLETER
 	return TriangleProxyIterator_impl<TriangleContainer::const_iterator>(m_triangles.cbegin(), m_triangles.cend());
 }
-
 TriangleIterator_const Objet3DPart::triangle_cend() const
 {
 	// Constuire et retourner un iterateur constant apres la fin du contenant de triangle
 	// L'iterateur de fin doit etre fourni 2 fois pour construire l'iterateur sur les triangles
 	// A COMPLETER
+
 	return TriangleProxyIterator_impl<TriangleContainer::const_iterator>(m_triangles.cend(), m_triangles.cend());
 
 }
@@ -117,6 +118,10 @@ void Objet3DPart::addTriangle(const Triangle & t)
 {
 	// Ajoute un nouveau triangle dans le conteneur des triangles
 	// A COMPLETER
+
+	//En somme, ce que ca fait, c'est qu'on ne garde pas la correspondance entre  un triangle et son proxy lorsqu'on
+	//incrémente l'itérateur.
+
 	m_triangles.push_back(Triangle(t));
 }
 

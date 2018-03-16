@@ -26,7 +26,7 @@ Objet3DComposite * Objet3DComposite::cloner(void) const
 	// Construire et retourner un nouvel objet identique a this
 	// A COMPLETER
 	
-	return new Objet3DComposite(*this);
+	return  new Objet3DComposite(*this);
 }
 
 Objet3DIterator Objet3DComposite::begin()

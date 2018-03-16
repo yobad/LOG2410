@@ -5,5 +5,6 @@ int main(int argc, char** argv)
 	TP4_Tests lesTests;
 
 	lesTests.testComposite();
-	//lesTests.testDecorator();
+	lesTests.testDecorator();
+	system("pause");
 }

@@ -10,6 +10,7 @@
 
 #include "AbsObjet3D.h"
 
+
 class Objet3DPart : public AbsObjet3D
 {
 

@@ -44,7 +44,7 @@ public:
 	void setTransform(const class Objet3DTransform* transform) { m_transform = transform; loadCacheTransform(); }
 
 private:
-	void loadCacheTransform(void); //Signature modifiée! brackets ajoutées.
+	void loadCacheTransform(void); 
 
 	Triangle m_triangleCache;
 	IterTy m_iter;
